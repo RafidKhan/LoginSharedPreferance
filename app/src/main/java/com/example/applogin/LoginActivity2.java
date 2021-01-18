@@ -60,32 +60,34 @@ public class LoginActivity2 extends AppCompatActivity {
 
 
 
-            if(gp== true || bl == true || tt == true || at == true || rb == true && mobileNumET.length() > 10) {
-
-                        if (passET.length() > 7) {
-                            userStatus = true;
-
-
-                            editor.putString("mobileNo", mobileNumberStore);
-                            editor.putString("pass", passStore);
-                            editor.putBoolean("status", userStatus);
-                            editor.commit();
-
-                            userStatus = true;
-                            Intent intent = new Intent(LoginActivity2.this, HomeActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                        else {
-                            Toast.makeText(LoginActivity2.this, "Please Enter Valid Mobile Number, Password Minimum 8 digits", Toast.LENGTH_SHORT).show();
-                        }
-                }
-                else
-                {
-                    Toast.makeText(LoginActivity2.this, "Please Enter Valid Mobile Number, Password Minimum 8 digits", Toast.LENGTH_SHORT).show();
-                }
+           // if(gp== true || bl == true || tt == true || at == true || rb == true && mobileNumET.length() > 10) {
+           if(mobileNumET.length() > 10) {
+               if (gp == true || bl == true || tt == true || at == true || rb == true) {
+                   if (passET.length() > 7) {
+                       userStatus = true;
 
 
+                       editor.putString("mobileNo", mobileNumberStore);
+                       editor.putString("pass", passStore);
+                       editor.putBoolean("status", userStatus);
+                       editor.commit();
+
+                       userStatus = true;
+                       Intent intent = new Intent(LoginActivity2.this, HomeActivity.class);
+                       startActivity(intent);
+                       finish();
+                   } else {
+                       Toast.makeText(LoginActivity2.this, "Please Enter Valid Mobile Number, Password Minimum 8 digits", Toast.LENGTH_SHORT).show();
+                   }
+               } else {
+                   Toast.makeText(LoginActivity2.this, "Please Enter Valid Mobile Number, Password Minimum 8 digits", Toast.LENGTH_SHORT).show();
+               }
+
+           }
+           else
+           {
+               Toast.makeText(LoginActivity2.this, "Enter Valid Mobile Number", Toast.LENGTH_SHORT).show();
+           }
 
 
 
